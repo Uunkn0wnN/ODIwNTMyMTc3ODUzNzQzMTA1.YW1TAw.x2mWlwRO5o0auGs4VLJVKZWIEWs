@@ -181,7 +181,7 @@ module.exports = handle = (client, Client) => {
 			const mediaMsg = await client.prepareMessageMedia(await getBuffer(res.data.url), 'imageMessage')
             const buttonMessage = {
 			      contentText: 'Waifu',
-				  footerText: 'Press the button below to get a random waifu image',
+				  footerText: 'Tekan tombol di bawah untuk mendapatkan gambar waifu acak',
                         "contextInfo": {
                               participant: data.sender,
                               stanzaId: data.message.key.id,
@@ -191,7 +191,7 @@ module.exports = handle = (client, Client) => {
                                 {
                                  buttonId: `${data.prefix}waifu`,
                                  buttonText: {
-                                    displayText: `⏯️ Get again`
+                                    displayText: `⏯️ Berikutnya`
                                   },
                                   "type": "RESPONSE"
                                 },
@@ -212,7 +212,7 @@ module.exports = handle = (client, Client) => {
 			const { title, synopsis, episodes, url, rated, score, image_url } = damta.results[0]
 			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Anime found!*\n\n*Title:* ${title}\n*Episodes:* ${episodes}\n*Rating:* ${rated}\n*Score:* ${score}\n*Synopsis:* ${synopsis}\n*URL*: ${url}`, data.message)
             } catch {
-                data.reply('Anime not found')
+                data.reply('Anime Tidak Ditemukan')
             }
 		})
         Client.cmd.on('manga', async (data) => {
@@ -225,7 +225,7 @@ module.exports = handle = (client, Client) => {
 			const { title, synopsis, chapters, url, rated, score, image_url } = damta.results[0]
 			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Manga found!*\n\n*Title:* ${title}\n*Chapters:* ${chapters}\n*Rating:* ${rated}\n*Score:* ${score}\n*Synopsis:* ${synopsis}\n*URL*: ${url}`, data.message)
             } catch {
-                data.reply('Manga not found')
+                data.reply('Manga Tidak Ditemukan')
             }
 		})
         Client.cmd.on('chara', async (data) => {
@@ -238,7 +238,7 @@ module.exports = handle = (client, Client) => {
 			const { name, alternative_names, url, image_url } = damta.results[0]
 			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Character found!*\n\n*Name:* ${name}\n*Alternative names:* ${alternative_names}\n*URL*: ${url}`, data.message)
             } catch {
-                data.reply('Character not found')
+                data.reply('Character Tidak Ditemukan')
             }
 		})
         /*OWNER*/
@@ -434,18 +434,18 @@ module.exports = handle = (client, Client) => {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
                   "title": "*ich¡kaą*",
-                  "description": "pilh on/off",
+                  "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
                   "sections": [
                      {
                         "rows": [
                            {
-                              "title": "on",
+                              "title": "🟢 aktifkan",
                               "rowId": `${data.prefix}${data.command} on`
                            },
 						   {
-                              "title": "off",
+                              "title": "🔴 matikan",
                               "rowId": `${data.prefix}${data.command} off`
                            }
                         ]
@@ -504,18 +504,18 @@ module.exports = handle = (client, Client) => {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
                   "title": "*ich¡kaą*",
-                  "description": "pilh on/off",
+                  "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
                   "sections": [
                      {
                         "rows": [
                            {
-                              "title": "on",
+                              "title": "🟢 aktifkan",
                               "rowId": `${data.prefix}${data.command} on`
                            },
 						   {
-                              "title": "off",
+                              "title": "🔴 matikan",
                               "rowId": `${data.prefix}${data.command} off`
                            }
                         ]
@@ -541,18 +541,18 @@ module.exports = handle = (client, Client) => {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
                   "title": "*ich¡kaą*",
-                  "description": "pilh on/off",
+                  "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
                   "sections": [
                      {
                         "rows": [
                            {
-                              "title": "on",
+                              "title": "🟢 aktifkan",
                               "rowId": `${data.prefix}${data.command} on`
                            },
 						   {
-                              "title": "off",
+                              "title": "🔴 matikan",
                               "rowId": `${data.prefix}${data.command} off`
                            }
                         ]
@@ -579,18 +579,18 @@ module.exports = handle = (client, Client) => {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
                   "title": "*ich¡kaą*",
-                  "description": "pilh on/off",
+                  "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
                   "sections": [
                      {
                         "rows": [
                            {
-                              "title": "on",
+                              "title": "🟢 aktifkan",
                               "rowId": `${data.prefix}${data.command} on`
                            },
 						   {
-                              "title": "off",
+                              "title": "🔴 matikan",
                               "rowId": `${data.prefix}${data.command} off`
                            }
                         ]
@@ -617,18 +617,18 @@ module.exports = handle = (client, Client) => {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
                   "title": "*ich¡kaą*",
-                  "description": "pilh on/off",
+                  "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
                   "sections": [
                      {
                         "rows": [
                            {
-                              "title": "on",
+                              "title": "🟢 aktifkan",
                               "rowId": `${data.prefix}${data.command} on`
                            },
 						   {
-                              "title": "off",
+                              "title": "🔴 matikan",
                               "rowId": `${data.prefix}${data.command} off`
                            }
                         ]
@@ -657,18 +657,18 @@ module.exports = handle = (client, Client) => {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
                   "title": "*ich¡kaą*",
-                  "description": "pilh open/close",
+                  "description": "pilh Buka/Tutup",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
                   "sections": [
                      {
                         "rows": [
                            {
-                              "title": "open",
+                              "title": "🟢 Buka",
                               "rowId": `${data.prefix}${data.command} open`
                            },
 						   {
-                              "title": "close",
+                              "title": "🔴 Tutup",
                               "rowId": `${data.prefix}${data.command} close`
                            }
                         ]
@@ -916,7 +916,7 @@ module.exports = handle = (client, Client) => {
  	                 const mediaMsg = await client.prepareMessageMedia(await getBuffer(configs.imgUrl), 'imageMessage')
                      const buttonMessage = {
                            contentText: menu(data.prefix, data.pushname),
-                           footerText: '𝐖𝐇𝐀𝐓𝐒𝐀𝐏𝐏-𝐁𝐎𝐓',
+                           footerText: '@ ich¡ką┃Development┃',
                                 "contextInfo": {
 									  mentionedJid: [configs.ownerList[0]],
                                       participant: sender,
@@ -1477,7 +1477,7 @@ module.exports = handle = (client, Client) => {
                     /*GROUP*/
                 case 'hidetag':
                 case 'everyone':
-                    if(!isAdmin) return data.reply('only be used by admin!')
+                    if(!isAdmin) return data.reply('hanya bisa di gunakan oleh admin!')
                     var mention = []
                     data.groupMetadata.participants.forEach((member, i) => {
                         mention.push(member.jid)
