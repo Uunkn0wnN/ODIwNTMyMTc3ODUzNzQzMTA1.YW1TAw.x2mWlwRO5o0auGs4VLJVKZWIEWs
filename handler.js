@@ -916,7 +916,7 @@ module.exports = handle = (client, Client) => {
  	                 const mediaMsg = await client.prepareMessageMedia(await getBuffer(configs.imgUrl), 'imageMessage')
                      const buttonMessage = {
                            contentText: menu(data.prefix, data.pushname),
-                           footerText: '@ ich¡ką┃Development┃',
+                           footerText: '@ ich¡ką┃Development┃Total 137 commands',
                                 "contextInfo": {
 									  mentionedJid: [configs.ownerList[0]],
                                       participant: sender,
@@ -927,14 +927,14 @@ module.exports = handle = (client, Client) => {
                                      {
                                        buttonId: `${data.prefix}info`,
                                        buttonText: {
-                                          displayText: "📒 𝐈𝐍𝐅𝐎"
+                                          displayText: "📒 ＳＥＷＡ"
                                         },
                                          "type": "RESPONSE"
                                      },
                                      {
                                        buttonId: `${data.prefix}owner`,
                                        buttonText: {
-                                          displayText: "🪀 𝐎𝐖𝐍𝐄𝐑"
+                                          displayText: "👑 ＯＷＮＥＲ"
                                         },
                                          "type": "RESPONSE"
                                      },
