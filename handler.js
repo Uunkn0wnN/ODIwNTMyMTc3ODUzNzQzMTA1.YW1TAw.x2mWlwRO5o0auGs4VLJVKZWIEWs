@@ -898,15 +898,15 @@ module.exports = handle = (client, Client) => {
             switch(command.toLowerCase()) {
 				case 'self':
 					if (!isOwner) return data.reply(mess.ownerOnly)
-					if (Client.self) return data.reply('Already Self Mode')
+					if (Client.self) return data.reply('ANDA SUDAH DALAM SELF MODE ⚠️')
 					Client.self = true
-					data.reply('OK')
+					data.reply('SUDAH SIAP 😘')
 				break
 				case 'public':
 					if (!isOwner) return data.reply(mess.ownerOnly)
-					if (!Client.self) return data.reply('Already Public Mode')
+					if (!Client.self) return data.reply('BOT SUDAH DALAM PUBLIC MODE ⚠️')
 					Client.self = false
-					data.reply('OK')
+					data.reply('SUDAH SIAP 😘')
 				break
                 case 'command':
                 case 'cmd':
