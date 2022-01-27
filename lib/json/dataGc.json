@@ -1,0 +1,46 @@
+{
+  "120363022689474435@g.us": {
+    "afk": {},
+    "welcome": true,
+    "leave": true,
+    "antilink": true,
+    "antiviewonce": true
+  },
+  "62895347381830-1620808271@g.us": {
+    "afk": {
+      "628983755600@s.whatsapp.net": {
+        "reason": "tidur banh kaoo bot gak respon coba ketik menu lagi kalo gak muncul brarti error exit mode yanh dalam artian offline",
+        "time": "2022-01-27 13:10:44"
+      },
+      "6285813123824@s.whatsapp.net": {
+        "reason": "main rumah temen",
+        "time": "2022-01-27 13:17:59"
+      }
+    },
+    "welcome": true,
+    "leave": true,
+    "antilink": false,
+    "antiviewonce": true,
+    "antitagall": true
+  },
+  "62882007585726-1634018070@g.us": {
+    "afk": {}
+  },
+  "628978344170-1626586243@g.us": {
+    "afk": {}
+  },
+  "6289516998339-1604849118@g.us": {
+    "afk": {}
+    "welcome": true,
+    "leave": true,
+  },
+  "628978344170-1631077589@g.us": {
+    "afk": {}
+  },
+  "120363040084748158@g.us": {
+    "afk": {}
+  },
+  "6282285795453-1565345322@g.us": {
+    "afk": {}
+  }
+}
