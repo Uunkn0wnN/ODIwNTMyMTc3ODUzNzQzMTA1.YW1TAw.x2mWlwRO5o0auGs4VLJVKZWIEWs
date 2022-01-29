@@ -1,10 +1,10 @@
 {	
 	"prefix": "#", 
 	"defaultSessionName": "kurrxd", 
-	"zeksKey": "cTnFZZjKxcyFJhs0UoO4czJaaJI",
+	"zeksKey": "CpGSLymOQy9KfTKgQZr9eDSYqqR",
 	"autoRead": true,
 	"self": false, 
-	"maxLimit": 30,
+	"maxLimit": 15,
 	"ownerList": ["628983755600@s.whatsapp.net", "628983755600@s.whatsapp.net"],
 	"apiUrl": "https://api.zeks.me",
     "imgUrl": "https://i.postimg.cc/BvjY2hxk/Picsart-22-01-26-00-42-43-745.jpg",
