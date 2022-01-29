@@ -433,7 +433,7 @@ module.exports = handle = (client, Client) => {
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
-                  "title": "*ich¡kaą*",
+                  "title": "*sh¡iro*",
                   "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
@@ -503,7 +503,7 @@ module.exports = handle = (client, Client) => {
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
-                  "title": "*ich¡kaą*",
+                  "title": "*sh¡ro*",
                   "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
@@ -540,7 +540,7 @@ module.exports = handle = (client, Client) => {
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
-                  "title": "*ich¡kaą*",
+                  "title": "*sh¡ro*",
                   "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
@@ -578,7 +578,7 @@ module.exports = handle = (client, Client) => {
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
-                  "title": "*ich¡kaą*",
+                  "title": "*sh¡ro*",
                   "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
@@ -616,7 +616,7 @@ module.exports = handle = (client, Client) => {
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
-                  "title": "*ich¡kaą*",
+                  "title": "*sh¡ro*",
                   "description": "pilh aktifkan/matikan",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
@@ -641,7 +641,7 @@ module.exports = handle = (client, Client) => {
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
             if(!data.isAdmin) return data.reply(mess.admin)
             client.revokeInvite(data.from)
-            data.reply(`Linkgroup berhasil di reset oleh admin @${data.sender.split('@')[0]}`)
+            data.reply(`Linkgroup berhasil di reset oleh @${data.sender.split('@')[0]}`)
         })
         Client.cmd.on('group', (data) => {
             if(!data.isGroup) return data.reply(mess.group)
@@ -649,14 +649,14 @@ module.exports = handle = (client, Client) => {
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
             if(data.args[0] && data.args[0].toLowerCase() == 'open') {
                 client.groupSettingChange(data.from, GroupSettingChange.messageSend, false)
-                data.reply(`Group telah dibuka oleh admin @${data.sender.split('@')[0]}`)
+                data.reply(`Group telah dibuka oleh @${data.sender.split('@')[0]}`)
             } else if(data.args[0] && data.args[0].toLowerCase() == 'close') {
                 client.groupSettingChange(data.from, GroupSettingChange.messageSend, true)
                 data.reply(`Group telah ditutup oleh admin @${data.sender.split('@')[0]}`)
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
-                  "title": "*ich¡kaą*",
+                  "title": "*sh¡ro*",
                   "description": "pilh Buka/Tutup",
                   "buttonText": "COMMANDS",
                   "listType": "SINGLE_SELECT",
@@ -909,14 +909,14 @@ module.exports = handle = (client, Client) => {
 					data.reply('SUDAH SIAP 😘')
 				break
                 case 'command':
-                case 'cmd':
+                case 'cmds':
                 case 'menu':
                 case 'help':
                 case 'list':
  	                 const mediaMsg = await client.prepareMessageMedia(await getBuffer(configs.imgUrl), 'imageMessage')
                      const buttonMessage = {
                            contentText: menu(data.prefix, data.pushname),
-                           footerText: '@ ich¡ką┃Development┃Total 137 commands',
+                           footerText: '@ sh¡ro┃Development┃Total 137 commands',
                                 "contextInfo": {
 									  mentionedJid: [configs.ownerList[0]],
                                       participant: sender,
