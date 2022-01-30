@@ -46,22 +46,12 @@
     "afk": {}
   },
   "120363022666722373@g.us": {
-    "afk": {
-      "6283835359304@s.whatsapp.net": {
-        "reason": "",
-        "time": "2022-01-30 13:07:06"
-      },
-      "628115111628@s.whatsapp.net": {
-        "reason": "turu melek",
-        "time": "2022-01-30 13:07:31"
-      }
-    },
+    "afk": {}
     "welcome": true,
     "leave": true,
     "antilink": true,
-    "antiviewonce": true,
-    "antitagall": true
-  },
+    "antiviewonce": true
+  },  
     }
   }
 }
