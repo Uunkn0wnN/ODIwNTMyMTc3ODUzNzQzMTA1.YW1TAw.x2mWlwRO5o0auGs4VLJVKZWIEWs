@@ -308,7 +308,7 @@ module.exports = handle = (client, Client) => {
 			
         })
         Client.cmd.on('clearall', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly)
             const getAll = await client.chats.all()
             getAll.forEach(async chats => {
                 if(chats.jid.endsWith('@g.us')) await client.modifyChat(chats.jid, 'clear')
