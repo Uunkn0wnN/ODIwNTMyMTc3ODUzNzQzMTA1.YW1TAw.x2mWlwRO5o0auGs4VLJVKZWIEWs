@@ -308,7 +308,7 @@ module.exports = handle = (client, Client) => {
 			
         })
         Client.cmd.on('clearall', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             const getAll = await client.chats.all()
             getAll.forEach(async chats => {
                 if(chats.jid.endsWith('@g.us')) await client.modifyChat(chats.jid, 'clear')
@@ -327,7 +327,7 @@ module.exports = handle = (client, Client) => {
             data.reply('Sukses!')
         })
         Client.cmd.on('bc', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             if(data.body == '') return
             var list = await client.chats.all()
             mediaBuffer = data.type == 'extendedTextMessage' ? await data.downloadMediaQuotedMessage() : data.type == 'imageMessage' || data.type == 'videoMessage' ? await data.downloadMediaMessage() : null
@@ -338,7 +338,7 @@ module.exports = handle = (client, Client) => {
             })
         })
         Client.cmd.on('join', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             if(data.body == "") return data.reply(`Link nya?`)
             Client.acceptInviteLink(data.body).then(() => data.reply('ok')).catch(() => data.reply('failed'))
         })
@@ -346,7 +346,7 @@ module.exports = handle = (client, Client) => {
             Client.sendContact(data.from, { number: configs.ownerList[0].split('@')[0], name: '👑 OWNER BOT 👑' }, data.message)
         })
         Client.cmd.on('premium', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             const dataUser = JSON.parse(fs.readFileSync('./lib/json/dataUser.json'))
             dataToPr = data.mentionedJidList.length ? data.mentionedJidList : [data.args[1] + "@s.whatsapp.net"] || null
 
