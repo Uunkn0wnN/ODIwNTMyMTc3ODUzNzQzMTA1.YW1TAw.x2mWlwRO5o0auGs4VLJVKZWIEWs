@@ -243,7 +243,7 @@ module.exports = handle = (client, Client) => {
 		})
         /*OWNER*/
         Client.cmd.on('setpp', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             if(!data.isQuotedImage && data.type != 'imageMessage') return data.reply(`Wrong format!, please send image with caption ${data.prefix}setgroupicon, or reply image with ${data.prefix}setgroupicon`)
             const getbuff = data.isQuotedImage ? JSON.parse(JSON.stringify(data.message).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : data.message
             const dlfile = await client.downloadMediaMessage(getbuff)
@@ -251,19 +251,19 @@ module.exports = handle = (client, Client) => {
             data.reply(`BERHASIL!,Mengganti profile picture oleh @${data.sender.split('@')[0]}`)
         })
         Client.cmd.on('block', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             if(data.mentionedJidList.length == 0) return data.reply(`Kirim perintah *${data.prefix}${data.command} [ @tag ]*\nContoh : ${data.prefix}${data.command} @0`)
             data.mentionedJidList.forEach(jids => client.blockUser(jids, "add"))
             data.reply(`BERHASIL! Memblokir @${data.mentionedJidList.join(' @').replace(/@s.whatsapp.net/g, '')}`)
         })
         Client.cmd.on('unblock', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             if(data.mentionedJidList.length == 0) return data.reply(`Kirim perintah *${data.prefix}${data.command} [ @tag ]*\nContoh : ${data.prefix}${data.command} @0`)
             data.mentionedJidList.forEach(jids => client.blockUser(jids, "remove"))
             data.reply(`BERHASIL! Membuka blokir @${data.mentionedJidList.join(' @').replace(/@s.whatsapp.net/g, '')}`)
         })
         Client.cmd.on('addvn', async (data) => {
-            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
+            if(!data.isOwner) return data.reply(mess.ownerOnly!)
             if(!data.isQuotedAudio) return data.reply('Reply vn/audio!')
             if(data.body == "") return data.reply(`Kirim perintah ${data.prefix}addvn [ nama ]\nContoh ${data.command}addvn hai`)
             if(vn.includes(data.body)) return data.reply('Nama vn sudah ada, harap gunakan nama lain')
