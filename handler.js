@@ -701,7 +701,7 @@ module.exports = handle = (client, Client) => {
             const getbuff = data.isQuotedImage ? JSON.parse(JSON.stringify(data.message).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : data.message
             const dlfile = await client.downloadMediaMessage(getbuff)
             client.updateProfilePicture(data.from, dlfile)
-            data.reply(`success!, group icon has been changed by @${data.sender.split('@')[0]}`)
+            data.reply(`BERHASIL!, group icon Telah Diganti oleh @${data.sender.split('@')[0]}`)
         })
         Client.cmd.on('setgroupname', async (data) => {
             if(!data.isGroup) return data.reply(mess.group)
@@ -709,7 +709,7 @@ module.exports = handle = (client, Client) => {
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
             if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}${data.command} [ text ]*\nContoh : ${data.prefix}${data.command} Elios`)
             client.groupUpdateSubject(data.from, `${data.body}`)
-            data.reply(`Nama group telah diganti oleh admin @${data.sender.split('@')[0]}`)
+            data.reply(`BERHASIL!, Nama group telah diganti oleh @${data.sender.split('@')[0]}`)
         })
         Client.cmd.on('setgroupdesc', async (data) => {
             if(!data.isGroup) return data.reply(mess.group)
@@ -717,7 +717,7 @@ module.exports = handle = (client, Client) => {
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
             if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}${data.command} [ text ]*\nContoh : ${data.prefix}${data.command} Elios`)
             client.groupUpdateDescription(data.from, `${data.body}`)
-            data.reply(`Deskripsi group telah diganti oleh admin @${data.sender.split('@')[0]}`)
+            data.reply(`BERHASIL!, Deskripsi group telah diganti oleh @${data.sender.split('@')[0]}`)
         })
         Client.cmd.on('promote', async (data) => {
             if(isLimit(data.sender)) return data.reply(mess.limit)
