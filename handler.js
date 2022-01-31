@@ -27,7 +27,7 @@ module.exports = handle = (client, Client) => {
                 Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp4`, `Video telah terkirim @${data.sender.split('@')[0]}`, data.message)
             } catch {
-                data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
+                data.reply('Ups maaf server sedang error')
             }
         })
         Client.cmd.on('ytmp3', async (data) => {
@@ -43,7 +43,7 @@ module.exports = handle = (client, Client) => {
                 Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, `${ytm.title} - Download.mp3`, ``, data.message)
             } catch {
-                data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
+                data.reply('Ups maaf server sedang error')
             }
         })
         Client.cmd.on('playvid', async (data) => {
@@ -59,13 +59,13 @@ module.exports = handle = (client, Client) => {
                 Client.sendFileFromUrl(data.from, `${ytm.thumb}`, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, `${ytm.link}`, 'video.mp4', `Video telah terkirim @${data.sender.split('@')[0]}`, data.message)
             } catch (e) {
-                data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
+                data.reply('Ups maaf server sedang error')
             }
         })
         Client.cmd.on('play', async (data) => {
             try {
                 if(isLimit(data.sender)) return data.reply(mess.limit)
-                if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}play [ link ]*\nContoh : ${data.prefix}play alone`)
+                if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}play [ link ]*\nContoh : ${data.prefix}play Gopnik`)
                 data.reply(mess.wait)
                 res = await axios.get(`${configs.apiUrl}/api/ytplaymp3/2?apikey=${configs.zeksKey}&q=${data.body}`)
                 if(res.data.status == false) data.reply(res.data.message)
@@ -75,7 +75,7 @@ module.exports = handle = (client, Client) => {
                 Client.sendFileFromUrl(data.from, ytm.thumb, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, ytm.link, `${ytm.title} - Download.mp3`, ``, data.message)
             } catch {
-                data.reply('Ups maaf server sedang error atau mungkin apikey invalid')
+                data.reply('Ups maaf server sedang error')
             }
         })
         Client.cmd.on('ig', async (data) => {
@@ -99,13 +99,13 @@ module.exports = handle = (client, Client) => {
                     Client.sendFileFromUrl(data.from, stomr.data.data[i].url, `ig.${stomr.data.data[i].type}`, `「 INSTAGRAM 」\n\n*Username*: ${stomr.data.username}\n*Type*: ${stomr.data.data[i].type}`, data.message);
                 }
             } catch {
-                data.reply('Username tidak ditemukan')
+                data.reply('Username tidak Dapat ditemukan')
             }
         })
         Client.cmd.on('joox', async (data) => {
             try {
                 if(isLimit(data.sender)) return data.reply(mess.limit)
-                if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}joox [ lagu ]*\nContoh : ${data.prefix}joox bad liar`)
+                if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}joox [ lagu ]*\nContoh : ${data.prefix}joox Gopnik`)
                 data.reply(mess.wait)
                 res = await axios.get(`${configs.apiUrl}/api/joox?apikey=${configs.zeksKey}&q=${data.body}`)
                 if(res.data.status == false) data.reply(jox.data.message)
@@ -114,7 +114,7 @@ module.exports = handle = (client, Client) => {
                 Client.sendFileFromUrl(data.from, `${jox.thumb}`, 'thumb.jpg', teks, data.message)
                 Client.sendFileFromUrl(data.from, `${jox.audio}`, 'audio.mp3', ``, data.message)
             } catch {
-                data.reply('Maaf lagu tidak ditemukan')
+                data.reply('Maaf lagu tidak Dapat ditemukan')
             }
         })
         /*RANDOM*/
@@ -169,7 +169,7 @@ module.exports = handle = (client, Client) => {
             if(dataUser[data.sender].premium) return data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\nAnda adalah user premium yang memiliki akses tanpa batas limit!`)
             limits = configs.maxLimit - dataUser[data.sender].limit
             if(limits <= 0) return data.reply("```" + `Limit anda sudah habis` + "```")
-            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 30}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik !owner`)
+            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 15}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik !owner`)
         })
         Client.cmd.on('info', async (data) => {
 		data.reply(ingfo)
@@ -205,65 +205,65 @@ module.exports = handle = (client, Client) => {
         Client.cmd.on('anime', async (data) => {
 			try {
 			if(isLimit(data.sender)) return data.reply(mess.limit)
-            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}anime [ query ]*\nContoh : ${data.prefix}anime naruto`)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}anime [ query ]*\nContoh : ${data.prefix}anime Boku no Pico`)
             data.reply(mess.wait)
             const res = await fetch(`https://api.jikan.moe/v3/search/anime?q=${data.body}`)
 			const damta = await res.json()
 			const { title, synopsis, episodes, url, rated, score, image_url } = damta.results[0]
 			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Anime found!*\n\n*Title:* ${title}\n*Episodes:* ${episodes}\n*Rating:* ${rated}\n*Score:* ${score}\n*Synopsis:* ${synopsis}\n*URL*: ${url}`, data.message)
             } catch {
-                data.reply('Anime Tidak Ditemukan')
+                data.reply('Anime Tidak Dapat Ditemukan')
             }
 		})
         Client.cmd.on('manga', async (data) => {
 			try {
 			if(isLimit(data.sender)) return data.reply(mess.limit)
-            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}manga [ query ]*\nContoh : ${data.prefix}manga naruto`)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}manga [ query ]*\nContoh : ${data.prefix}manga Boku no pico`)
             data.reply(mess.wait)
             const res = await fetch(`https://api.jikan.moe/v3/search/manga?q=${data.body}`)
 			const damta = await res.json()
 			const { title, synopsis, chapters, url, rated, score, image_url } = damta.results[0]
 			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Manga found!*\n\n*Title:* ${title}\n*Chapters:* ${chapters}\n*Rating:* ${rated}\n*Score:* ${score}\n*Synopsis:* ${synopsis}\n*URL*: ${url}`, data.message)
             } catch {
-                data.reply('Manga Tidak Ditemukan')
+                data.reply('Manga Tidak dapat Ditemukan')
             }
 		})
         Client.cmd.on('chara', async (data) => {
 			try {
 			if(isLimit(data.sender)) return data.reply(mess.limit)
-            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}chara [ query ]*\nContoh : ${data.prefix}manga naruto`)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}chara [ query ]*\nContoh : ${data.prefix}chara pico`)
             data.reply(mess.wait)
             const res = await fetch(`https://api.jikan.moe/v3/search/character?q=${data.body}`)
 			const damta = await res.json()
 			const { name, alternative_names, url, image_url } = damta.results[0]
 			Client.sendFileFromUrl(data.from, image_url, 'p.jpg', `*Character found!*\n\n*Name:* ${name}\n*Alternative names:* ${alternative_names}\n*URL*: ${url}`, data.message)
             } catch {
-                data.reply('Character Tidak Ditemukan')
+                data.reply('Character Tidak Dapat Ditemukan')
             }
 		})
         /*OWNER*/
         Client.cmd.on('setpp', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             if(!data.isQuotedImage && data.type != 'imageMessage') return data.reply(`Wrong format!, please send image with caption ${data.prefix}setgroupicon, or reply image with ${data.prefix}setgroupicon`)
             const getbuff = data.isQuotedImage ? JSON.parse(JSON.stringify(data.message).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : data.message
             const dlfile = await client.downloadMediaMessage(getbuff)
             client.updateProfilePicture(client.user.jid, dlfile)
-            data.reply(`success!, profile picture has been changed by @${data.sender.split('@')[0]}`)
+            data.reply(`BERHASIL!,Mengganti profile picture oleh @${data.sender.split('@')[0]}`)
         })
         Client.cmd.on('block', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             if(data.mentionedJidList.length == 0) return data.reply(`Kirim perintah *${data.prefix}${data.command} [ @tag ]*\nContoh : ${data.prefix}${data.command} @0`)
             data.mentionedJidList.forEach(jids => client.blockUser(jids, "add"))
-            data.reply(`Succecs block @${data.mentionedJidList.join(' @').replace(/@s.whatsapp.net/g, '')}`)
+            data.reply(`BERHASIL! Memblokir @${data.mentionedJidList.join(' @').replace(/@s.whatsapp.net/g, '')}`)
         })
         Client.cmd.on('unblock', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             if(data.mentionedJidList.length == 0) return data.reply(`Kirim perintah *${data.prefix}${data.command} [ @tag ]*\nContoh : ${data.prefix}${data.command} @0`)
             data.mentionedJidList.forEach(jids => client.blockUser(jids, "remove"))
-            data.reply(`Succecs unblock @${data.mentionedJidList.join(' @').replace(/@s.whatsapp.net/g, '')}`)
+            data.reply(`BERHASIL! Membuka blokir @${data.mentionedJidList.join(' @').replace(/@s.whatsapp.net/g, '')}`)
         })
         Client.cmd.on('addvn', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             if(!data.isQuotedAudio) return data.reply('Reply vn/audio!')
             if(data.body == "") return data.reply(`Kirim perintah ${data.prefix}addvn [ nama ]\nContoh ${data.command}addvn hai`)
             if(vn.includes(data.body)) return data.reply('Nama vn sudah ada, harap gunakan nama lain')
@@ -308,16 +308,16 @@ module.exports = handle = (client, Client) => {
 			
         })
         Client.cmd.on('clearall', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             const getAll = await client.chats.all()
             getAll.forEach(async chats => {
                 if(chats.jid.endsWith('@g.us')) await client.modifyChat(chats.jid, 'clear')
                 else await client.modifyChat(chats.jid, 'delete')
             })
-            data.reply('OkE')
+            data.reply('BERHASIL!')
         })
         Client.cmd.on('resetlimit', async (data) => {
-            if(!data.isOwner) return data.reply('Owner only!')
+            if(!data.isOwner) return data.reply('KHUSUS OWNER!')
             const dataUser = JSON.parse(fs.readFileSync('./lib/json/dataUser.json'))
             for(users in dataUser) {
                 dataUser[users].limit = 0
@@ -327,7 +327,7 @@ module.exports = handle = (client, Client) => {
             data.reply('Sukses!')
         })
         Client.cmd.on('bc', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER)
             if(data.body == '') return
             var list = await client.chats.all()
             mediaBuffer = data.type == 'extendedTextMessage' ? await data.downloadMediaQuotedMessage() : data.type == 'imageMessage' || data.type == 'videoMessage' ? await data.downloadMediaMessage() : null
@@ -338,15 +338,15 @@ module.exports = handle = (client, Client) => {
             })
         })
         Client.cmd.on('join', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             if(data.body == "") return data.reply(`Link nya?`)
             Client.acceptInviteLink(data.body).then(() => data.reply('ok')).catch(() => data.reply('failed'))
         })
         Client.cmd.on('owner', async (data) => {
-            Client.sendContact(data.from, { number: configs.ownerList[0].split('@')[0], name: '👑 OWNER BOT' }, data.message)
+            Client.sendContact(data.from, { number: configs.ownerList[0].split('@')[0], name: '👑 OWNER BOT 👑' }, data.message)
         })
         Client.cmd.on('premium', async (data) => {
-            if(!data.isOwner) return data.reply(mess.ownerOnly)
+            if(!data.isOwner) return data.reply(mess.KHUSUS OWNER!)
             const dataUser = JSON.parse(fs.readFileSync('./lib/json/dataUser.json'))
             dataToPr = data.mentionedJidList.length ? data.mentionedJidList : [data.args[1] + "@s.whatsapp.net"] || null
 
@@ -421,12 +421,12 @@ module.exports = handle = (client, Client) => {
             if(!data.isAdmin) return data.reply(mess.admin)
             const dataGc = JSON.parse(fs.readFileSync('./lib/json/dataGc.json'))
             if(data.args[0].toLowerCase() == 'on') {
-                if(dataGc[data.from].welcome) return data.reply('Already on!')
+                if(dataGc[data.from].welcome) return data.reply('SUDAH AKTIF!')
                 dataGc[data.from].welcome = true
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
             } else if(data.args[0].toLowerCase() == 'off') {
-                if(!dataGc[data.from].welcome) return data.reply('Already off!')
+                if(!dataGc[data.from].welcome) return data.reply('SUDAH MATI!')
                 dataGc[data.from].welcome = false
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
@@ -455,7 +455,7 @@ module.exports = handle = (client, Client) => {
         })
 	    Client.cmd.on('youtubedl', async (data) =>{
             if(isLimit(data.sender)) return data.reply(mess.limit)
-            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}youtubedl [ query ]*\nContoh : ${data.prefix}youtubedl Alan walker`)
+            if(data.body == "") return data.reply(`Kirim perintah *${data.prefix}youtubedl [ query ]*\nContoh : ${data.prefix}youtubedl Gopnik`)
             data.reply(mess.wait)
 			axios.get(`${configs.apiUrl}/api/yts?apikey=${configs.zeksKey}&q=${data.body}`).then((xres) =>{
 			if (!xres.data.status || !xres.data.result) return data.reply(xres.data.message)
@@ -491,12 +491,12 @@ module.exports = handle = (client, Client) => {
             if(!data.isAdmin) return data.reply(mess.admin)
             const dataGc = JSON.parse(fs.readFileSync('./lib/json/dataGc.json'))
             if(data.args[0].toLowerCase() == 'on') {
-                if(dataGc[data.from].leave) return data.reply('Already on!')
+                if(dataGc[data.from].leave) return data.reply('SUDAH AKTIF!')
                 dataGc[data.from].leave = true
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
             } else if(data.args[0].toLowerCase() == 'off') {
-                if(!dataGc[data.from].leave) return data.reply('Already off!')
+                if(!dataGc[data.from].leave) return data.reply('SUDAH MATI!')
                 dataGc[data.from].leave = false
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
@@ -528,12 +528,12 @@ module.exports = handle = (client, Client) => {
             if(!data.isAdmin) return data.reply(mess.admin)
             const dataGc = JSON.parse(fs.readFileSync('./lib/json/dataGc.json'))
             if(data.args[0].toLowerCase() == 'on') {
-                if(dataGc[data.from].antiviewonce) return data.reply('Already on!')
+                if(dataGc[data.from].antiviewonce) return data.reply('SUDAH AKTIF!')
                 dataGc[data.from].antiviewonce = true
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
             } else if(data.args[0].toLowerCase() == 'off') {
-                if(!dataGc[data.from].antiviewonce) return data.reply('Already off!')
+                if(!dataGc[data.from].antiviewonce) return data.reply('SUDAH MATI!')
                 dataGc[data.from].antiviewonce = false
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
@@ -566,12 +566,12 @@ module.exports = handle = (client, Client) => {
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
             const dataGc = JSON.parse(fs.readFileSync('./lib/json/dataGc.json'))
             if(data.args[0].toLowerCase() == 'on') {
-                if(dataGc[data.from].antitagall) return data.reply('Already on!')
+                if(dataGc[data.from].antitagall) return data.reply('SUDAH AKTIF!')
                 dataGc[data.from].antitagall = true
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
             } else if(data.args[0].toLowerCase() == 'off') {
-                if(!dataGc[data.from].antitagall) return data.reply('Already off!')
+                if(!dataGc[data.from].antitagall) return data.reply('SUDAH MATI!')
                 dataGc[data.from].antitagall = false
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
@@ -604,12 +604,12 @@ module.exports = handle = (client, Client) => {
             if(!data.botIsAdmin) return data.reply(mess.botAdmin)
             const dataGc = JSON.parse(fs.readFileSync('./lib/json/dataGc.json'))
             if(data.args[0].toLowerCase() == 'on') {
-                if(dataGc[data.from].antilink) return data.reply('Already on!')
+                if(dataGc[data.from].antilink) return data.reply('SUDAH AKTIF!')
                 dataGc[data.from].antilink = true
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
             } else if(data.args[0].toLowerCase() == 'off') {
-                if(!dataGc[data.from].antilink) return data.reply('Already off!')
+                if(!dataGc[data.from].antilink) return data.reply('SUDAH MATI!')
                 dataGc[data.from].antilink = false
                 fs.writeFileSync('./lib/json/dataGc.json', JSON.stringify(dataGc))
                 data.reply('Sukses!')
@@ -652,7 +652,7 @@ module.exports = handle = (client, Client) => {
                 data.reply(`Group telah dibuka oleh @${data.sender.split('@')[0]}`)
             } else if(data.args[0] && data.args[0].toLowerCase() == 'close') {
                 client.groupSettingChange(data.from, GroupSettingChange.messageSend, true)
-                data.reply(`Group telah ditutup oleh admin @${data.sender.split('@')[0]}`)
+                data.reply(`Group telah ditutup oleh @${data.sender.split('@')[0]}`)
             } else {
 				let po = client.prepareMessageFromContent(data.from, {
 					"listMessage":{
