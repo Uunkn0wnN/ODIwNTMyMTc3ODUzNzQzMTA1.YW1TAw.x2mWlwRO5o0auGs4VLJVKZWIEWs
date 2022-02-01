@@ -1509,8 +1509,8 @@ module.exports = handle = (client, Client) => {
                         quoted: resData
                     }))
                     break
-                case 'tes':
-                    data.reply('auto upt')
+                case 'tod':
+                    data.reply('Online banh')
                     break
                 case 'return':
 		        case 'eval':
