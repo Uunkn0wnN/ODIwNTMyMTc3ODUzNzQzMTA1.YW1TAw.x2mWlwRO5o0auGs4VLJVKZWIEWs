@@ -1509,7 +1509,7 @@ module.exports = handle = (client, Client) => {
                         quoted: resData
                     }))
                     break
-                case 'tod':
+                case 'status':
                     data.reply('Online banh')
                     break
                 case 'return':
