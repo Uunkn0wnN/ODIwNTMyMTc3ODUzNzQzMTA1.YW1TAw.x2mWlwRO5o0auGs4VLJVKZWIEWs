@@ -953,7 +953,7 @@ module.exports = handle = (client, Client) => {
                 case 'stickergif':
                 case 'stikergif':
                     if(isLimit(data.sender)) return data.reply(mess.limit)
-                    if(type != 'videoMessage' && !isQuotedVideo && !isQuotedImage && type != 'imageMessage') return data.reply('Wrong format!')
+                    if(type != 'videoMessage' && !isQuotedVideo && !isQuotedImage && type != 'imageMessage') return data.reply('*Kirim gambar/video dengan caption #sticker atau reaply gambar/video yang sudah dikirim dengan caption #sticker* ⚠️')
                     const getbuff = data.isQuotedVideo || data.isQuotedImage ? JSON.parse(JSON.stringify(data.message).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : data.message
                     const dlfile = await client.downloadMediaMessage(getbuff)
                     if(type == 'videoMessage' || isQuotedVideo) Client.sendMp4AsSticker(from, dlfile.toString('base64'), message, { pack: `${configs.pack}`, author: `${configs.author}` })
