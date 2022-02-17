@@ -169,7 +169,7 @@ module.exports = handle = (client, Client) => {
             if(dataUser[data.sender].premium) return data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\nAnda adalah user premium yang memiliki akses tanpa batas limit!`)
             limits = configs.maxLimit - dataUser[data.sender].limit
             if(limits <= 0) return data.reply("```" + `Limit anda sudah habis` + "```")
-            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 15}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik !owner`)
+            data.reply(`Hai @${data.sender.split('@')[0]} 👋🏻\n Limit anda tersisa ${limits || 15}\nLimit setiap hari di reset jam 00.00\nJika anda ingin mendapatkan unlimited limit silahkan chat owner bot ketik #owner`)
         })
         Client.cmd.on('info', async (data) => {
 		data.reply(ingfo)
