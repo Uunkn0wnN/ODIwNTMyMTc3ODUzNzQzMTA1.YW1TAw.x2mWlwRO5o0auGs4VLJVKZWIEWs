@@ -51,7 +51,7 @@ const starts = async (sesName) => {
         	asd = asd[1]
             if (!asd.id.endsWith('@g.us')) return
             if((asd.type == 'composing' || asd.type == 'recording') && afkJs.detectingAfk(asd.id, asd.participant)) {
-            Client.sendText(asd.id, `@${asd.participant.split('@')[0]} terdeteksi melakukan aktivitas!, status afkMu telah dihapus`)
+            Client.sendText(asd.id, `@${asd.participant.split('@')[0]} terdeteksi melakukan aktivitas!, status *afk* telah dihapus`)
                 }
         })
 		client.on('CB:Call', json => {
